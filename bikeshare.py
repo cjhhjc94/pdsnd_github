@@ -101,16 +101,16 @@ def station_stats(df):
     start_time = time.time()
 
     # TO DO: display most commonly used start station
-    mostcommonstartstation = df['Start Station'].value_counts().idxmax()
-    print("most commonly used start station is ", mostcommonstartstation)
+    most_common_start_station = df['Start Station'].value_counts().idxmax()
+    print("most commonly used start station is ", most_common_start_station)
 
     # TO DO: display most commonly used end station
-    mostcommonendstation = df['End Station'].value_counts().idxmax()
-    print("most commonly used end station is ",mostcommonendstation)
+    most_common_end_station = df['End Station'].value_counts().idxmax()
+    print("most commonly used end station is ",most_common_end_station)
 
     # TO DO: display most frequent combination of start station and end station trip
-    mostcommonstartendstation = df[['Start Station', 'End Station']].mode().loc[0]
-    print("the most commonly used start station and end station : {}, {}".format(mostcommonstartendstation[0], mostcommonstartendstation[1]))
+    most_common_start_end_station = df[['Start Station', 'End Station']].mode().loc[0]
+    print("the most commonly used start station and end station : {}, {}".format(most_common_start_end_station[0], mostcommonstartendstation[1]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -142,15 +142,16 @@ def user_stats(df):
 
     # TO DO: Display counts of user types
     print("counts of user types:\n")
-    usercounts = df['User Type'].value_counts()
-    print(usercounts)
+
+    user_counts = df['User Type'].value_counts()
+    print(user_counts)
 
     # TO DO: Display counts of gender
     print("counts of gender:\n")
     try:
-        gendercounts = df['Gender'].value_counts()
+        gender_counts = df['Gender'].value_counts()
         print("Gender:")
-        print(gendercounts)
+        print(gender_counts)
         print()
     except KeyError:
         print("There isn't a [Gender] column in this spreedsheet!")
@@ -160,12 +161,12 @@ def user_stats(df):
         birthyear = df['Birth Year']
         print("Birth Year:")
         print()
-        mostcommonyear = birthyear.value_counts().max()
-        print("the most common birth year:", mostcommonyear)
-        mostrecent = birthyear.max()
-        print("the most recent birth year:", mostrecent)
-        earliestyear = birthyear.min()
-        print("the most earliest birth year:", earliestyear)
+        most_common_year = birthyear.value_counts().max()
+        print("the most common birth year:", most_common_year)
+        most_recent = birthyear.max()
+        print("the most recent birth year:", most_recent)
+        earliest_year = birthyear.min()
+        print("the most earliest birth year:", earliest_year)
     except KeyError:
         print("There isn't a [Birth Year] column in this spreedsheet!")
     print("\nThis took %s seconds." % (time.time() - start_time))
