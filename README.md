@@ -2,7 +2,7 @@
 2020-02-24
 
 ### Project Title
-cha's bikeshare
+Cha's bikeshare
 
 ### Description
 displays data filtered by user input
