@@ -18,14 +18,14 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    while True: 
+    while True:
         city = input("Select a city from {}, {} or {}:".format(*CITY_DATA.keys())).strip().lower()
         if city in CITY_DATA.keys():
             break
 
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
-        
+
         month = input('month to check:').lower()
         if month not in months:
             print('re-enter month')
@@ -79,16 +79,16 @@ def time_stats(df):
 
     # TO DO: display the most common month
     print(df['month'].value_counts().max())
-    mostcommonmonth = df['month'].value_counts().max()
-    print("most common month is ", mostcommonmonth)
+    most_common_month = df['month'].value_counts().max()
+    print("most common month is ", most_common_month)
 
     # TO DO: display the most common day of week
-    mostcommonday = df['day'].value_counts().max()
-    print("most common day is", mostcommonday)
+    most_common_day = df['day'].value_counts().max()
+    print("most common day is", most_common_day)
 
     # TO DO: display the most common start hour
-    mostcommonhour = df['hour'].value_counts().max()
-    print("most common hour is", mostcommonhour)
+    most_common_hour = df['hour'].value_counts().max()
+    print("most common hour is", most_common_hour)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -101,16 +101,16 @@ def station_stats(df):
     start_time = time.time()
 
     # TO DO: display most commonly used start station
-    mostcommonstartstation = df['Start Station'].value_counts().idxmax()
-    print("most commonly used start station is ", mostcommonstartstation)
+    most_common_start_station = df['Start Station'].value_counts().idxmax()
+    print("most commonly used start station is ", most_common_start_station)
 
     # TO DO: display most commonly used end station
-    mostcommonendstation = df['End Station'].value_counts().idxmax()
-    print("most commonly used end station is ",mostcommonendstation)
+    most_common_end_station = df['End Station'].value_counts().idxmax()
+    print("most commonly used end station is ",most_common_end_station)
 
     # TO DO: display most frequent combination of start station and end station trip
-    mostcommonstartendstation = df[['Start Station', 'End Station']].mode().loc[0]
-    print("the most commonly used start station and end station : {}, {}".format(mostcommonstartendstation[0], mostcommonstartendstation[1]))
+    most_common_start_end_station = df[['Start Station', 'End Station']].mode().loc[0]
+    print("the most commonly used start station and end station : {}, {}".format(most_common_start_end_station[0], mostcommonstartendstation[1]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -144,7 +144,7 @@ def user_stats(df):
     print("counts of user types:\n")
     usercounts = df['User Type'].value_counts()
     print(usercounts)
-          
+
     # TO DO: Display counts of gender
     print("counts of gender:\n")
     try:
@@ -154,7 +154,7 @@ def user_stats(df):
         print()
     except KeyError:
         print("There isn't a [Gender] column in this spreedsheet!")
-          
+
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
         birthyear = df['Birth Year']
@@ -170,8 +170,8 @@ def user_stats(df):
         print("There isn't a [Birth Year] column in this spreedsheet!")
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-    
+
+
 def raw_data(df):
     """shows 5 rows of data"""
     show_rows = 5
